@@ -1,12 +1,14 @@
 ---
 // Server-side frontmatter - static landing page for Niko Tesla
 import '../styles/global.css';
+import logo from '../images/logo.svg';
+import favicon from '../images/favicon.png';
 ---
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/png" href="/src/images/favicon.png" />
+		<link rel="icon" type="image/png" href={favicon.src} />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Niko Tesla</title>
@@ -34,7 +36,7 @@ import '../styles/global.css';
 			<h1 id="title">Niko Tesla</h1>
 			<h3>y el</h3>
 			<h3>Ingenio de Silicio</h3>	
-    <img src="/src/images/logo.svg" alt="Logo" class="logo" />
+    <img src={logo.src} alt="Logo" class="logo" />
 
 			<h4>P.X. ALTADILL</h4>
 			

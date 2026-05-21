@@ -1,11 +1,11 @@
 @font-face {
 	font-family: 'Achilles';
-	src: url('fonts/AchillesBoldBold.eot');
-	src: url('fonts/AchillesBoldBold.eot?#iefix') format('embedded-opentype'),
-		url('fonts/AchillesBoldBold.woff2') format('woff2'),
-		url('fonts/AchillesBoldBold.woff') format('woff'),
-		url('fonts/AchillesBoldBold.ttf') format('truetype'),
-		url('fonts/AchillesBoldBold.svg#Achilles Bold') format('svg');
+	src: url('/fonts/AchillesBoldBold.eot');
+	src: url('/fonts/AchillesBoldBold.eot?#iefix') format('embedded-opentype'),
+		url('/fonts/AchillesBoldBold.woff2') format('woff2'),
+		url('/fonts/AchillesBoldBold.woff') format('woff'),
+		url('/fonts/AchillesBoldBold.ttf') format('truetype'),
+		url('/fonts/AchillesBoldBold.svg#Achilles Bold') format('svg');
 	font-weight: bold;
 	font-style: normal;
 	font-display: swap;
