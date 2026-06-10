@@ -24,6 +24,7 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
+    environment: github-pages
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -57,6 +58,16 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
         working-directory: ${{ env.BUILD_PATH }}
+
+      - name: Verify Environment Variables
+        run: |
+          if [ -z "$PUBLIC_GOOGLE_MAPS_API_KEY" ]; then
+            echo "::warning::PUBLIC_GOOGLE_MAPS_API_KEY is NOT set!"
+          else
+            echo "PUBLIC_GOOGLE_MAPS_API_KEY is set (length: ${#PUBLIC_GOOGLE_MAPS_API_KEY})"
+          fi
+        env:
+          PUBLIC_GOOGLE_MAPS_API_KEY: ${{ secrets.PUBLIC_GOOGLE_MAPS_API_KEY }}
 
       - name: Build with Astro
         run: |
