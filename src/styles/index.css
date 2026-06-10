@@ -1,0 +1,46 @@
+/* =========================================
+   Index page styles
+   ========================================= */
+
+.nav-container {
+	margin-top: 3.5rem;
+	opacity: 0;
+	transform: translateY(20px);
+	animation: fade-in-up 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+	animation-delay: 0.4s;
+	z-index: 20;
+}
+
+.btn-ejemplares {
+	display: inline-block;
+	text-decoration: none;
+	color: #38bdf8; /* light electric blue */
+	border: 1.5px solid rgba(56, 189, 248, 0.4);
+	padding: 0.8rem 2.2rem;
+	border-radius: 4px;
+	font-family: 'Outfit', sans-serif;
+	font-size: 0.95rem;
+	font-weight: bold;
+	letter-spacing: 0.15em;
+	text-transform: uppercase;
+	transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+	background: rgba(11, 37, 69, 0.4);
+	box-shadow: 0 0 15px rgba(56, 189, 248, 0.08);
+	backdrop-filter: blur(8px);
+	-webkit-backdrop-filter: blur(8px);
+	user-select: none;
+	cursor: pointer;
+}
+
+.btn-ejemplares:hover {
+	color: #ffffff;
+	border-color: #38bdf8;
+	background: rgba(56, 189, 248, 0.12);
+	box-shadow: 0 0 25px rgba(56, 189, 248, 0.3);
+	transform: translateY(-3px);
+}
+
+.btn-ejemplares:active {
+	transform: translateY(-1px);
+	box-shadow: 0 0 15px rgba(56, 189, 248, 0.25);
+}
