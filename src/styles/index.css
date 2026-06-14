@@ -4,6 +4,10 @@
 
 .nav-container {
 	margin-top: 3.5rem;
+	display: flex;
+	justify-content: center;
+	gap: 1.5rem;
+	flex-wrap: wrap;
 	opacity: 0;
 	transform: translateY(20px);
 	animation: fade-in-up 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -12,11 +16,13 @@
 }
 
 .btn-ejemplares {
-	display: inline-block;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.6rem;
 	text-decoration: none;
 	color: #38bdf8; /* light electric blue */
 	border: 1.5px solid rgba(56, 189, 248, 0.4);
-	padding: 0.8rem 2.2rem;
+	padding: 0.8rem 1.8rem;
 	border-radius: 4px;
 	font-family: 'Outfit', sans-serif;
 	font-size: 0.95rem;
@@ -43,4 +49,45 @@
 .btn-ejemplares:active {
 	transform: translateY(-1px);
 	box-shadow: 0 0 15px rgba(56, 189, 248, 0.25);
+}
+
+.btn-icon {
+	transition: transform 0.3s ease;
+	flex-shrink: 0;
+}
+
+.btn-ejemplares:hover .btn-icon {
+	transform: scale(1.15);
+}
+
+.site-footer {
+	margin-top: 3rem;
+	opacity: 0;
+	animation: fade-in-up 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+	animation-delay: 0.7s;
+}
+
+.social-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	text-decoration: none;
+	color: rgba(255, 255, 255, 0.4);
+	font-family: 'Outfit', sans-serif;
+	font-size: 0.85rem;
+	letter-spacing: 0.08em;
+	transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.social-link:hover {
+	color: #38bdf8;
+	text-shadow: 0 0 12px rgba(56, 189, 248, 0.5);
+}
+
+.social-link .btn-icon {
+	transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-link:hover .btn-icon {
+	transform: scale(1.2);
 }

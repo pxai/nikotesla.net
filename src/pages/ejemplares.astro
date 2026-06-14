@@ -25,7 +25,7 @@ const googleMapsApiKey = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY;
 			<div class="glow-orb" id="orb1"></div>
 			<div class="glow-orb-secondary" id="orb2"></div>
 		</div>
-		
+
 		<main class="container">
 			<header class="header">
 				<a href="/" class="btn-back">
@@ -39,7 +39,10 @@ const googleMapsApiKey = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY;
 
 			<section class="content-section">
 				<div class="text-group">
-					<h1 class="page-title">Ejemplares</h1>
+					<h1 class="page-title">
+						<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="title-icon"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+						Ejemplares
+					</h1>
 					<p class="subtitle">Ejemplares de Niko Tesla y el Ingenio de Silicio</p>
 				</div>
 
@@ -65,7 +68,7 @@ const googleMapsApiKey = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY;
 					id: "bilbao",
 					name: "Bilbao",
 					lat: 43.2712379,
-					lng: -3.500009,
+					lng: -2.9422817,
 					info: "Universidad de Deusto"
 				},
 				{
@@ -88,6 +91,13 @@ const googleMapsApiKey = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY;
 					lat: 42.8175308,
 					lng: -1.6693907,
 					info: "Barrio de San Juan"
+				},
+				{
+					id: "sarriguren",
+					name: "Sarriguren",
+					lat: 42.8127472,
+					lng: -1.5978708,
+					info: "Sarriguren"
 				}
 			];
 
@@ -186,7 +196,7 @@ const googleMapsApiKey = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY;
 				if (!mapContainer) return;
 
 				const bounds = new google.maps.LatLngBounds();
-				
+
 				const map = new google.maps.Map(mapContainer, {
 					zoom: 8,
 					styles: mapStyle,
@@ -204,19 +214,11 @@ const googleMapsApiKey = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY;
 
 				locations.forEach((loc) => {
 					const pos = { lat: loc.lat, lng: loc.lng };
-					
+
 					const marker = new google.maps.Marker({
 						position: pos,
 						map: map,
 						title: loc.name,
-						icon: {
-							path: google.maps.SymbolPath.CIRCLE,
-							fillColor: '#38bdf8',
-							fillOpacity: 0.9,
-							strokeColor: '#ffffff',
-							strokeWeight: 1.5,
-							scale: 8,
-						}
 					});
 
 					markers[loc.id] = marker;
@@ -224,13 +226,13 @@ const googleMapsApiKey = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY;
 
 					const openInfoWindow = () => {
 						infoWindow.setContent(`
-							<div class="map-info-window" style="color: #0b2545; font-family: 'Outfit', sans-serif; padding: 0.5rem; max-width: 220px;">
-								<h4 style="margin: 0 0 0.4rem 0; font-family: 'Outfit', sans-serif; font-size: 1.1rem; color: #08203e; font-weight: 700;">${loc.name}</h4>
-								<p style="margin: 0; font-size: 0.85rem; line-height: 1.4; color: #334155;">${loc.info}</p>
+							<div class="map-info-window">
+								<h4 class="map-info-title">${loc.name}</h4>
+								<p class="map-info-text">${loc.info}</p>
 							</div>
 						`);
 						infoWindow.open(map, marker);
-						
+
 						// Highlight corresponding sidebar item
 						const sidebarItems = document.querySelectorAll(".sidebar-item");
 						sidebarItems.forEach(el => {
@@ -262,11 +264,11 @@ const googleMapsApiKey = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY;
 							const marker = markers[locId];
 							map.setZoom(11);
 							map.panTo({ lat: loc.lat, lng: loc.lng });
-							
+
 							infoWindow.setContent(`
-								<div class="map-info-window" style="color: #0b2545; font-family: 'Outfit', sans-serif; padding: 0.5rem; max-width: 220px;">
-									<h4 style="margin: 0 0 0.4rem 0; font-family: 'Outfit', sans-serif; font-size: 1.1rem; color: #08203e; font-weight: 700;">${loc.name}</h4>
-									<p style="margin: 0; font-size: 0.85rem; line-height: 1.4; color: #334155;">${loc.info}</p>
+								<div class="map-info-window">
+									<h4 class="map-info-title">${loc.name}</h4>
+									<p class="map-info-text">${loc.info}</p>
 								</div>
 							`);
 							infoWindow.open(map, marker);
